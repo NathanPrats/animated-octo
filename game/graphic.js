@@ -28,7 +28,6 @@ function init()
     player1 = new Player("player1", 0xffff00, new THREE.Vector2(0, 0), 0);
     scene.add(player1.graphic);
 
-    nbEnnemies = Math.floor(Math.random()*10);
     x = Math.floor((Math.random() - 0.5) * 600);
     y = Math.floor((Math.random() - 0.5) * 400);
     ennemy = new Ennemy("ennemy", 0xff0000, new THREE.Vector2(x, y), 0)

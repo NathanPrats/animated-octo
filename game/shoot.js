@@ -59,10 +59,8 @@ function bullet_collision()
 
         xSpace = Math.abs(ennemy.position.x - player1.bullets[i].position.x)
         ySpace = Math.abs(ennemy.position.y - player1.bullets[i].position.y)
-        console.log(xSpace, ySpace)
         if (xSpace < 12 && ySpace < 12)
         {
-            console.log(ennemy);
             scene.remove(ennemy.graphic);
         }
     }
