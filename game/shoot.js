@@ -53,6 +53,20 @@ function bullet_collision()
         }
     }
 
+    //collision betweet bullet and ennemies
+    for (var i = 0; i < player1.bullets.length; i++)
+    {
+
+        xSpace = Math.abs(ennemy.position.x - player1.bullets[i].position.x)
+        ySpace = Math.abs(ennemy.position.y - player1.bullets[i].position.y)
+        console.log(xSpace, ySpace)
+        if (xSpace < 12 && ySpace < 12)
+        {
+            console.log(ennemy);
+            scene.remove(ennemy.graphic);
+        }
+    }
+
 }
 
 function player_collision()
@@ -63,10 +77,12 @@ function player_collision()
 
     if ( x > WIDTH )
         player1.graphic.position.x -= x - WIDTH;
-    if ( y < 0 )
-        player1.graphic.position.y -= y;
+    if (x < 0 )
+        player1.graphic.position.x -= x;
     if ( y > HEIGHT )
         player1.graphic.position.y -= y - HEIGHT;
+    if ( y < 0 )
+        player1.graphic.position.y -= y;
 
 }
 
@@ -82,11 +98,12 @@ function player_falling()
 
     for (var i = 0; i < length; i++) {
         element = noGround[i];
-
-        var tileX = (element[0]) | 0;
-        var tileY = (element[1]) | 0;
-        var mtileX = (element[0] + sizeOfTileX) | 0;
-        var mtileY = (element[1] + sizeOfTileY) | 0;
+        if (element) {
+            var tileX = (element[0]) | 0;
+            var tileY = (element[1]) | 0;
+            var mtileX = (element[0] + sizeOfTileX) | 0;
+            var mtileY = (element[1] + sizeOfTileY) | 0;
+        }
 
         if ((x > tileX)
             && (x < mtileX)
